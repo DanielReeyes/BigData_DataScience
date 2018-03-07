@@ -63,14 +63,13 @@ sexo_cod_teste = codificador_rotulos.fit_transform(Dados_Teste["Sex"])
 variaveis_teste = pd.DataFrame(Dados_Teste, columns=['Pclass','Age','Fare'])
 variaveis_teste['Sexo'] = sexo_cod_teste
 
+#Normalizando os dados de treino e de teste na mesma escala com z-score
 print("Normalizando os dados de -1 a 1:")
 colunas = list(Variaveis_Treino)
 scaler = preprocessing.StandardScaler().fit(Variaveis_Treino)
     
 Variaveis_Treino = pd.DataFrame(scaler.transform(Variaveis_Treino), columns=colunas)
 variaveis_teste = pd.DataFrame(scaler.transform(variaveis_teste), columns=colunas)
-#print("Amostra do novo DataFrame de Treino.: ")
-#print(Variaveis_Treino.head())
 
 print("Amostra do novo DataFrame de Teste.: ")
 print(variaveis_teste.head())
