@@ -14,22 +14,16 @@ os.chdir('/Users/danielreyes/Documents/BigData_DataScience/Titanic/CSVs')
 Dados_Treino = pd.read_csv("train.csv") 
 
 #Normalizando os dados de treino
-#Cria uma nova coluna, quando a idade não foi informada (Null), passará a idade média dos dados (28)
-colIdadeNormTreino = np.where(Dados_Treino["Age"].isnull(),
-                         28,
-                         Dados_Treino["Age"])
-
-#Substitui a coluna original dos dados pela coluna nova, sem dados faltantes
-Dados_Treino["Age"] = colIdadeNormTreino
+#Quando a idade não foi informada (Null), passará a idade média dos dados
+Dados_Treino['Age'] = Dados_Treino['Age'].fillna(Dados_Treino['Age'].median())
 
 #Transformando os valores da coluna sexo de string para inteiro
 codificador_rotulos = preprocessing.LabelEncoder()
 sexo_cod_treino = codificador_rotulos.fit_transform(Dados_Treino["Sex"])
 
 #Declara um modelo de Rede Neural Multi-Camada
+#RNA = MLPClassifier(hidden_layer_sizes=(4,))
 RNA = MLPClassifier()
-
-#print(RNA)
 
 #Criando um dataframe para treinar o modelo somente com as colunas escolhidas e
 # adicionando a coluna sexo normalizada
@@ -44,6 +38,8 @@ print(Variaveis_Treino.head())
 RNA.fit(X=Variaveis_Treino,
         y=Dados_Treino["Survived"])
 
+print(RNA)
+
 #Mensurando a capacidade de acerto do modelo treinado
 print("Score do Treino.: ")
 print(RNA.score(X=Variaveis_Treino,
@@ -54,17 +50,10 @@ print(RNA.score(X=Variaveis_Treino,
 Dados_Teste = pd.read_csv("test.csv")
 
 #Normalizando os dados de teste
-#Cria uma nova coluna, quando a idade não foi informada (Null), passará a idade média dos dados (28)
-colIdadeNormTeste = np.where(Dados_Teste["Age"].isnull(),   # teste se for nulo
-                       28,                                  # Valor se for nulo
-                       Dados_Teste["Age"])                  # se não for nulo, pega a idade 
+#Quando a idade não foi informada (Null), passará a idade média dos dados
+Dados_Teste["Age"] = Dados_Teste['Age'].fillna(Dados_Teste['Age'].median()) 
 
-#Substitui a coluna original dos dados pela coluna nova, sem dados faltantes
-Dados_Teste["Age"] = colIdadeNormTeste 
-
-Dados_Teste["Fare"] = np.where(Dados_Teste["Fare"].isnull(), # teste se for nulo
-                       0,                                            # Valor se for nulo
-                       Dados_Teste["Fare"])                      # se não for nulo, pega o valor de Fare 
+Dados_Teste["Fare"] = Dados_Teste['Fare'].fillna(Dados_Teste['Fare'].median()) 
 
 #Transformando os valores da coluna sexo de string para inteiro
 sexo_cod_teste = codificador_rotulos.fit_transform(Dados_Teste["Sex"])
@@ -73,6 +62,15 @@ sexo_cod_teste = codificador_rotulos.fit_transform(Dados_Teste["Sex"])
 # adicionando a coluna sexo normalizada
 variaveis_teste = pd.DataFrame(Dados_Teste, columns=['Pclass','Age','Fare'])
 variaveis_teste['Sexo'] = sexo_cod_teste
+
+print("Normalizando os dados de -1 a 1:")
+colunas = list(Variaveis_Treino)
+scaler = preprocessing.StandardScaler().fit(Variaveis_Treino)
+    
+Variaveis_Treino = pd.DataFrame(scaler.transform(Variaveis_Treino), columns=colunas)
+variaveis_teste = pd.DataFrame(scaler.transform(variaveis_teste), columns=colunas)
+#print("Amostra do novo DataFrame de Treino.: ")
+#print(Variaveis_Treino.head())
 
 print("Amostra do novo DataFrame de Teste.: ")
 print(variaveis_teste.head())
@@ -91,9 +89,6 @@ predicoes = RNA.predict(variaveis_teste)
 #Utiliza uma função para contabilizar a acurácia, para isso precisa passar como
 #parâmetro os rótulos originais e os preditos
 accuracy = accuracy_score(rotulos_teste, predicoes)
-
-print("Resultado dos dados de Teste.: ")
-print(accuracy)
 
 #Função criada para plotar imagem da matriz de confusão e uma escala de cores
 def plot_confusion_matrix(cm, classes,
@@ -130,3 +125,6 @@ np.set_printoptions(precision=2)
 class_names = ['Sobreviveu', 'N-Sobreviveu']
 plot_confusion_matrix(cnf_matrix, classes=class_names,
                       title='Confusion matrix')
+
+print("Resultado dos dados de Teste.: ")
+print(accuracy)
