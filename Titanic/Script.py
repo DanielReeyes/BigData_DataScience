@@ -64,7 +64,7 @@ variaveis_teste = pd.DataFrame(Dados_Teste, columns=['Pclass','Age','Fare'])
 variaveis_teste['Sexo'] = sexo_cod_teste
 
 #Normalizando os dados de treino e de teste na mesma escala com z-score
-print("Normalizando os dados de -1 a 1:")
+print("Normalizando os dados para que fiquem na mesma escala:")
 colunas = list(Variaveis_Treino)
 scaler = preprocessing.StandardScaler().fit(Variaveis_Treino)
     
