@@ -11,7 +11,12 @@ from sklearn.metrics import confusion_matrix
 #Setando o caminho dos arquivos de dados
 os.chdir('/Users/danielreyes/Documents/BigData_DataScience/Titanic/CSVs')
 #Lendo o arquivo para guardar os dados de treino em um DataFrame
-Dados_Treino = pd.read_csv("train.csv") 
+Dados_Treino = pd.read_csv("train.csv")
+
+colunas2 = list(Dados_Treino)
+print("Variáveis.:")
+print(colunas2)
+print(Dados_Treino.head())
 
 #Normalizando os dados de treino
 #Quando a idade não foi informada (Null), passará a idade média dos dados
