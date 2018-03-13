@@ -16,50 +16,64 @@ from sklearn import tree
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report
 
 #Função criada para plotar imagem da matriz de confusão e uma escala de cores
-def plot_confusion_matrix(cm, classes,
-                          normalize=False,
+def plot_confusion_matrix(cm_Precision, cm_Recall, classes,
                           title='Confusion matrix',
-                          cmap=plt.cm.Blues, 
-                          score=""):
-    print(cm)
+                          cmap=plt.cm.Blues):
 
-    plt.imshow(cm, interpolation='nearest', cmap=cmap)
-    plt.title(title)
-    plt.colorbar()
+    fig, ax = plt.subplots(1, 2, figsize=(15, 4.5))
+    plt.subplots_adjust(wspace = 0.05)
+    
+    ax[0].imshow(cm_Precision, interpolation='nearest', cmap=cmap)
+    ax[0].set_title("Precision")
+    
     tick_marks = np.arange(len(classes))
+    plt.sca(ax[0])
     plt.xticks(tick_marks, classes, rotation=45)
     plt.yticks(tick_marks, classes)
-
-    fmt = '.2f' if normalize else 'd'
-    thresh = cm.max() / 2.
-    for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
-        plt.text(j, i, format(cm[i, j], fmt),
-                 horizontalalignment="center",
-                 color="white" if cm[i, j] > thresh else "black")
-
-    #plt.tight_layout()
-    plt.show()
-    print(plt)
-    
-    #rótulos dos eixos 'x' e 'y'
+#    #rótulos dos eixos 'x' e 'y'
     plt.ylabel('Rótulo Real')
     plt.xlabel('Rótulo Predito')
+    plt.imshow(cm_Precision, interpolation='nearest', cmap=cmap)
+    plt.colorbar()
+    
+    fmt = '.2f' 
+    thresh = cm_Precision.max() / 2.
+    for i, j in itertools.product(range(cm_Precision.shape[0]), range(cm_Precision.shape[1])):
+        ax[0].text(j, i, format(cm_Precision[i, j], fmt),
+                 horizontalalignment="center",
+                 color="white" if cm_Precision[i, j] > thresh else "black")
+
+    ax[1].imshow(cm_Recall, interpolation='nearest', cmap=cmap)
+    ax[1].set_title("Recall")
+    plt.sca(ax[1])
+    plt.xticks(tick_marks, classes, rotation=45)
+    plt.yticks(tick_marks, classes)
+    plt.imshow(cm_Recall, interpolation='nearest', cmap=cmap)
+    plt.colorbar()
+    
+#    #rótulos dos eixos 'x' e 'y'
+    plt.ylabel('Rótulo Real')
+    plt.xlabel('Rótulo Predito')
+
+    fmt = '.2f' 
+    thresh = cm_Recall.max() / 2.
+    for i, j in itertools.product(range(cm_Recall.shape[0]), range(cm_Recall.shape[1])):
+        ax[1].text(j, i, format(cm_Recall[i, j], fmt),
+                 horizontalalignment="center",
+                 color="white" if cm_Recall[i, j] > thresh else "black")
+
         
 #Setando o caminho dos arquivos de dados
 os.chdir('/Users/danielreyes/Documents/BigData_DataScience/Cancer/CSVs')
 #Lendo o arquivo para guardar os dados em um DataFrame
-df = pd.read_csv("DadosCancerMama.csv", sep=";")
+df = pd.read_csv("DadosCancerMamaDesbal.csv", sep=";")
 
 codificador_rotulos = preprocessing.LabelEncoder()
 rotulo = codificador_rotulos.fit_transform(df["Label"])
 
 df["Label"] = rotulo
-
-#histogram_example = plt.hist(df["Label"])
-#plt.show()
 
 colunas = list(df)
 scaler = preprocessing.StandardScaler().fit(df)
@@ -93,17 +107,20 @@ for score in scores:
 
     for mean, std, params in zip(means, stds, clf.cv_results_['params']):
         if(clf.best_params_ == params):
-            print("%0.3f (+/-%0.03f) for %r"
+            print("%0.4f (+/-%0.04f) utilizando %r"
               % (mean, std * 2, params))
 
     y_true, y_pred = rotulo_teste, clf.predict(df_teste)
-#    print(classification_report(y_true, y_pred))
-#    print()
+    
     # Computando matriz de confusão
-    cnf_matrix = confusion_matrix(y_true, y_pred)
+    if(score == 'precision'):
+        cm_Precision = confusion_matrix(y_true, y_pred)
+    elif(score == 'recall'):
+        cm_recall = confusion_matrix(y_true, y_pred)
+        
     np.set_printoptions(precision=2)
     
-    # Plotando a matriz de confusão
-    class_names = ['Cancer', 'N-Cancer']
-    plot_confusion_matrix(cnf_matrix, classes=class_names,
-                          title='Confusion matrix', score=score)
+# Plotando a matriz de confusão
+class_names = ['Cancer', 'N-Cancer']
+plot_confusion_matrix(cm_Precision, cm_recall, classes=class_names,
+                          title='Confusion matrix')
