@@ -16,6 +16,32 @@ from sklearn import tree
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+from sklearn import svm
+
+def f_importances(coef, names):
+    importance = pd.DataFrame(coef)
+    feature = pd.DataFrame(names)
+    
+    importance = importance.transpose()
+    importances = pd.concat([feature, importance], axis=1, join_axes=[importance.index])
+    importances.columns = ['feature', 'importance']
+    importances = importances.sort('importance', ascending=False)
+    print(importances)
+    
+def plot_coefficients(classifier, feature_names, top_features=20):
+     coef = classifier.coef_.ravel()
+     top_positive_coefficients = np.argsort(coef)[-top_features:]
+     top_negative_coefficients = np.argsort(coef)[:top_features]
+     top_coefficients = np.hstack([top_negative_coefficients, top_positive_coefficients])
+     # create plot
+     plt.figure(figsize=(13, 5))
+     colors = ['red' if c < 0 else 'blue' for c in coef[top_coefficients]]
+     plt.bar(np.arange(2 * top_features), coef[top_coefficients], color=colors)
+     feature_names = np.array(feature_names)
+     plt.xticks(np.arange(0, 2 * top_features), feature_names[top_coefficients], rotation=60, ha='right')
+     plt.yticks(np.arange(-1.3, 1.2, 0.3))
+     plt.show()
 
 #Função criada para plotar imagem da matriz de confusão e uma escala de cores
 def plot_confusion_matrix(cm_Precision, cm_Recall, classes,
@@ -70,6 +96,9 @@ os.chdir('/Users/danielreyes/Documents/BigData_DataScience/Cancer/CSVs')
 #Lendo o arquivo para guardar os dados em um DataFrame
 df = pd.read_csv("DadosCancerMama.csv", sep=";")
 
+modelo = "svm"
+#modelo = "dt"
+
 codificador_rotulos = preprocessing.LabelEncoder()
 rotulo = codificador_rotulos.fit_transform(df["Label"])
 
@@ -82,34 +111,54 @@ df = pd.DataFrame(scaler.transform(df), columns=colunas)
 del df["Label"]
 del df["ID"]
 
-parametros = {'max_depth': range(3, 10)}
-tree = tree.DecisionTreeClassifier()
+colunas2 = list(df)
 
 df_treino, df_teste, rotulo_treino, rotulo_teste = train_test_split(
      df, rotulo, test_size=0.2, random_state=0)
 
-tree.fit(df_treino, rotulo_treino)
-feat_sel = tree.feature_importances_
+if(modelo == "dt"):
+    parametros = {'max_depth': range(3, 10)}
+    tree = tree.DecisionTreeClassifier()
+    
+    tree.fit(df_treino, rotulo_treino)
+    feat_sel = tree.feature_importances_
+    
+    importances = pd.DataFrame({'feature':df_treino.columns,'importance':np.round(tree.feature_importances_,3)})
 
-importances = pd.DataFrame({'feature':df_treino.columns,'importance':np.round(tree.feature_importances_,3)})
-importances = importances.sort_values('importance',ascending=False).set_index('feature')
+    importances = importances.sort_values('importance',ascending=False).set_index('feature')
+    importances = importances[(importances.T >= 0.01).any()]
+    importances.plot.bar()
 
-importances = importances[(importances.T >= 0.01).any()]
-print (importances)
-importances.plot.bar()
+elif(modelo == "svm"):
+    c_values = [0.1, 0.3, 0.5, 0.7, 0.9, 1.0, 1.3, 1.5, 1.7, 2.0]
+    parametros = {'kernel':('linear', 'rbf'), 'C': c_values}
+#    parametros = {'C': c_values}    
+#    svm = svm.SVC(kernel = "linear")
+    svm = svm.SVC()
+    
+    svm.fit(df_treino, rotulo_treino)
+    kernel_svm = svm.kernel
+    if(kernel_svm == "linear"):
+        feat_sel = svm.coef_
+        f_importances(svm.coef_, colunas2)
+        plot_coefficients(svm, colunas2, 10)
 
 # Set the parameters by cross-validation
-
 scores = ['precision', 'recall']
 
 for score in scores:
     print()
     print("Métrica.: " + score)
     print()
-
-    clf = GridSearchCV(tree, parametros, cv=10,
-                       scoring='%s' % score)
-    clf.fit(df_treino, rotulo_treino)
+    
+    if(modelo=="dt"):
+        clf = GridSearchCV(tree, parametros, cv=10,
+                           scoring='%s' % score)
+        clf.fit(df_treino, rotulo_treino)
+    elif(modelo=="svm"):
+        clf = GridSearchCV(svm, parametros, cv=10,
+                           scoring='%s' % score)
+        clf.fit(df_treino, rotulo_treino)
 
     print("Melhores parâmetros.: {} " .format(clf.best_params_))
 
@@ -121,17 +170,17 @@ for score in scores:
             print("%0.4f (+/-%0.04f) utilizando %r"
               % (mean, std * 2, params))
 
-#    y_true, y_pred = rotulo_teste, clf.predict(df_teste)
     predicoes = clf.predict(df_teste)
     
     # Computando matriz de confusão
     if(score == 'precision'):
-#        cm_Precision = confusion_matrix(y_true, y_pred)
         cm_Precision = confusion_matrix(rotulo_teste, predicoes)
     elif(score == 'recall'):
-#        cm_recall = confusion_matrix(y_true, y_pred)
         cm_recall = confusion_matrix(rotulo_teste, predicoes)
-        
+    
+    accuracy = accuracy_score(rotulo_teste, predicoes)
+    print("Acurácia.: " + str(accuracy))
+    
     np.set_printoptions(precision=2)
     
 # Plotando a matriz de confusão
