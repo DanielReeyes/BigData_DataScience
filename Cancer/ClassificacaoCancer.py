@@ -68,7 +68,7 @@ def plot_confusion_matrix(cm_Precision, cm_Recall, classes,
 #Setando o caminho dos arquivos de dados
 os.chdir('/Users/danielreyes/Documents/BigData_DataScience/Cancer/CSVs')
 #Lendo o arquivo para guardar os dados em um DataFrame
-df = pd.read_csv("DadosCancerMamaDesbal.csv", sep=";")
+df = pd.read_csv("DadosCancerMama.csv", sep=";")
 
 codificador_rotulos = preprocessing.LabelEncoder()
 rotulo = codificador_rotulos.fit_transform(df["Label"])
@@ -80,12 +80,23 @@ scaler = preprocessing.StandardScaler().fit(df)
     
 df = pd.DataFrame(scaler.transform(df), columns=colunas)
 del df["Label"]
+del df["ID"]
 
 parametros = {'max_depth': range(3, 10)}
 tree = tree.DecisionTreeClassifier()
 
 df_treino, df_teste, rotulo_treino, rotulo_teste = train_test_split(
-     df, rotulo, test_size=0.1, random_state=0)
+     df, rotulo, test_size=0.2, random_state=0)
+
+tree.fit(df_treino, rotulo_treino)
+feat_sel = tree.feature_importances_
+
+importances = pd.DataFrame({'feature':df_treino.columns,'importance':np.round(tree.feature_importances_,3)})
+importances = importances.sort_values('importance',ascending=False).set_index('feature')
+
+importances = importances[(importances.T >= 0.01).any()]
+print (importances)
+importances.plot.bar()
 
 # Set the parameters by cross-validation
 
@@ -110,13 +121,16 @@ for score in scores:
             print("%0.4f (+/-%0.04f) utilizando %r"
               % (mean, std * 2, params))
 
-    y_true, y_pred = rotulo_teste, clf.predict(df_teste)
+#    y_true, y_pred = rotulo_teste, clf.predict(df_teste)
+    predicoes = clf.predict(df_teste)
     
     # Computando matriz de confusão
     if(score == 'precision'):
-        cm_Precision = confusion_matrix(y_true, y_pred)
+#        cm_Precision = confusion_matrix(y_true, y_pred)
+        cm_Precision = confusion_matrix(rotulo_teste, predicoes)
     elif(score == 'recall'):
-        cm_recall = confusion_matrix(y_true, y_pred)
+#        cm_recall = confusion_matrix(y_true, y_pred)
+        cm_recall = confusion_matrix(rotulo_teste, predicoes)
         
     np.set_printoptions(precision=2)
     
