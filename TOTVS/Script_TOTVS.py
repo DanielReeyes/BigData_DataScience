@@ -40,8 +40,6 @@ with open('sample.txt', newline='') as inputfile:
                 print("Parte 1: " + str1)
                 print("Parte 2: " + str2)
                 lst = lst.append(str2)
-#                df.loc[i] = str2
-#                i = i+1    
 
             
             
