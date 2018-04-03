@@ -1,0 +1,821 @@
+[
+{
+  "complemento": {
+    "valorTotal": 24.9
+  },
+  "dets": [
+    {
+      "nItem": "1",
+      "prod": {
+        "indTot": "1",
+        "qCom": 1.0,
+        "uCom": "UN",
+        "vProd": 3.5,
+        "vUnCom": 3.5,
+        "xProd": "AGUA"
+      }
+    },
+    {
+      "nItem": "2",
+      "prod": {
+        "indTot": "1",
+        "qCom": 0.312,
+        "uCom": "KG",
+        "vProd": 21.4,
+        "vUnCom": 68.6,
+        "xProd": "BUFFET"
+      }
+    }
+  ],
+  "emit": {
+    "cnpj": "01.234.567/0001-89",
+    "enderEmit": {
+      "fone": "1-650-933-4902",
+      "xBairro": "",
+      "xLgr": "650 Castro St. unit 210",
+      "xMun": "Mountain View",
+      "xPais": "United States",
+      "uf": "CA"
+    },
+    "xFant": "TOTVS Labs"
+  },
+  "ide": {
+    "dhEmi": {
+      "$date": "2016-01-05T12:01:54.000Z"
+    },
+    "natOp": "VENDA"
+  },
+  "infAdic": {
+    "infCpl": "Mesa 2"
+  },
+  "total": {
+    "icmsTot": {
+      "vDesc": 0.0,
+      "vFrete": 0.0,
+      "vOutro": 0.0,
+      "vProd": 24.9,
+      "vSeg": 0.0,
+      "vTotTrib": 2.53,
+      "vbc": 0.0,
+      "vbcst": 0.0,
+      "vcofins": 0.0,
+      "vicms": 0.0,
+      "vicmsDeson": 0.0,
+      "vii": 0.0,
+      "vipi": 0.0,
+      "vnf": 24.9,
+      "vpis": 0.0,
+      "vst": 0.0
+    }
+  },
+  "versaoDocumento": 1.0
+}
+,{
+  "complemento": {
+    "valorTotal": 92.53
+  },
+  "dets": [
+    {
+      "nItem": "1",
+      "prod": {
+        "indTot": "1",
+        "qCom": 1.218,
+        "uCom": "KG",
+        "vProd": 83.55,
+        "vUnCom": 68.6,
+        "xProd": "BUFFET"
+      }
+    },
+    {
+      "nItem": "2",
+      "prod": {
+        "indTot": "1",
+        "qCom": 2.0,
+        "uCom": "UN",
+        "vProd": 9.0,
+        "vUnCom": 4.5,
+        "xProd": "REFRIGERANTE"
+      }
+    }
+  ],
+  "emit": {
+    "cnpj": "01.234.567/0001-89",
+    "enderEmit": {
+      "fone": "1-650-933-4902",
+      "xBairro": "",
+      "xLgr": "650 Castro St. unit 210",
+      "xMun": "Mountain View",
+      "xPais": "United States",
+      "uf": "CA"
+    },
+    "xFant": "TOTVS Labs"
+  },
+  "ide": {
+    "dhEmi": {
+      "$date": "2016-01-05T12:03:52.000Z"
+    },
+    "natOp": "VENDA"
+  },
+  "infAdic": {
+    "infCpl": "Mesa 1"
+  },
+  "total": {
+    "icmsTot": {
+      "vDesc": 0.0,
+      "vFrete": 0.0,
+      "vOutro": 0.0,
+      "vProd": 92.55,
+      "vSeg": 0.0,
+      "vTotTrib": 7.71,
+      "vbc": 0.0,
+      "vbcst": 0.0,
+      "vcofins": 0.0,
+      "vicms": 0.0,
+      "vicmsDeson": 0.0,
+      "vii": 0.0,
+      "vipi": 0.0,
+      "vnf": 92.55,
+      "vpis": 0.0,
+      "vst": 0.0
+    }
+  },
+  "versaoDocumento": 1.0
+}
+,{
+  "complemento": {
+    "valorTotal": 57.86
+  },
+  "dets": [
+    {
+      "nItem": "1",
+      "prod": {
+        "indTot": "1",
+        "qCom": 1.0,
+        "uCom": "UN",
+        "vProd": 4.5,
+        "vUnCom": 4.5,
+        "xProd": "SUCO"
+      }
+    },
+    {
+      "nItem": "2",
+      "prod": {
+        "indTot": "1",
+        "qCom": 0.778,
+        "uCom": "KG",
+        "vProd": 53.37,
+        "vUnCom": 68.6,
+        "xProd": "BUFFET"
+      }
+    }
+  ],
+  "emit": {
+    "cnpj": "01.234.567/0001-89",
+    "enderEmit": {
+      "fone": "1-650-933-4902",
+      "xBairro": "",
+      "xLgr": "650 Castro St. unit 210",
+      "xMun": "Mountain View",
+      "xPais": "United States",
+      "uf": "CA"
+    },
+    "xFant": "TOTVS Labs"
+  },
+  "ide": {
+    "dhEmi": {
+      "$date": "2016-01-05T12:16:40.000Z"
+    },
+    "natOp": "VENDA"
+  },
+  "infAdic": {
+    "infCpl": "Mesa 5"
+  },
+  "total": {
+    "icmsTot": {
+      "vDesc": 0.0,
+      "vFrete": 0.0,
+      "vOutro": 0.0,
+      "vProd": 57.87,
+      "vSeg": 0.0,
+      "vTotTrib": 2.43,
+      "vbc": 0.0,
+      "vbcst": 0.0,
+      "vcofins": 0.0,
+      "vicms": 0.0,
+      "vicmsDeson": 0.0,
+      "vii": 0.0,
+      "vipi": 0.0,
+      "vnf": 57.87,
+      "vpis": 0.0,
+      "vst": 0.0
+    }
+  },
+  "versaoDocumento": 1.0
+}
+,{
+  "complemento": {
+    "valorTotal": 34.97
+  },
+  "dets": [
+    {
+      "nItem": "1",
+      "prod": {
+        "indTot": "1",
+        "qCom": 0.51,
+        "uCom": "KG",
+        "vProd": 34.98,
+        "vUnCom": 68.6,
+        "xProd": "BUFFET"
+      }
+    }
+  ],
+  "emit": {
+    "cnpj": "01.234.567/0001-89",
+    "enderEmit": {
+      "fone": "1-650-933-4902",
+      "xBairro": "",
+      "xLgr": "650 Castro St. unit 210",
+      "xMun": "Mountain View",
+      "xPais": "United States",
+      "uf": "CA"
+    },
+    "xFant": "TOTVS Labs"
+  },
+  "ide": {
+    "dhEmi": {
+      "$date": "2016-01-05T12:17:50.000Z"
+    },
+    "natOp": "VENDA"
+  },
+  "infAdic": {
+    "infCpl": "Mesa 3"
+  },
+  "total": {
+    "icmsTot": {
+      "vDesc": 0.0,
+      "vFrete": 0.0,
+      "vOutro": 0.0,
+      "vProd": 34.98,
+      "vSeg": 0.0,
+      "vTotTrib": 1.47,
+      "vbc": 0.0,
+      "vbcst": 0.0,
+      "vcofins": 0.0,
+      "vicms": 0.0,
+      "vicmsDeson": 0.0,
+      "vii": 0.0,
+      "vipi": 0.0,
+      "vnf": 34.98,
+      "vpis": 0.0,
+      "vst": 0.0
+    }
+  },
+  "versaoDocumento": 1.0
+}
+,{
+  "complemento": {
+    "valorTotal": 46.23
+  },
+  "dets": [
+    {
+      "nItem": "1",
+      "prod": {
+        "indTot": "1",
+        "qCom": 0.674,
+        "uCom": "KG",
+        "vProd": 46.23,
+        "vUnCom": 68.6,
+        "xProd": "BUFFET"
+      }
+    }
+  ],
+  "emit": {
+    "cnpj": "01.234.567/0001-89",
+    "enderEmit": {
+      "fone": "1-650-933-4902",
+      "xBairro": "",
+      "xLgr": "650 Castro St. unit 210",
+      "xMun": "Mountain View",
+      "xPais": "United States",
+      "uf": "CA"
+    },
+    "xFant": "TOTVS Labs"
+  },
+  "ide": {
+    "dhEmi": {
+      "$date": "2016-01-05T12:18:35.000Z"
+    },
+    "natOp": "VENDA"
+  },
+  "infAdic": {
+    "infCpl": "Mesa 4"
+  },
+  "total": {
+    "icmsTot": {
+      "vDesc": 0.0,
+      "vFrete": 0.0,
+      "vOutro": 0.0,
+      "vProd": 46.23,
+      "vSeg": 0.0,
+      "vTotTrib": 1.94,
+      "vbc": 0.0,
+      "vbcst": 0.0,
+      "vcofins": 0.0,
+      "vicms": 0.0,
+      "vicmsDeson": 0.0,
+      "vii": 0.0,
+      "vipi": 0.0,
+      "vnf": 46.23,
+      "vpis": 0.0,
+      "vst": 0.0
+    }
+  },
+  "versaoDocumento": 1.0
+}
+,{
+  "complemento": {
+    "valorTotal": 32.76
+  },
+  "dets": [
+    {
+      "nItem": "1",
+      "prod": {
+        "indTot": "1",
+        "qCom": 0.412,
+        "uCom": "KG",
+        "vProd": 28.26,
+        "vUnCom": 68.6,
+        "xProd": "BUFFET"
+      }
+    },
+    {
+      "nItem": "2",
+      "prod": {
+        "indTot": "1",
+        "qCom": 1.0,
+        "uCom": "UN",
+        "vProd": 4.5,
+        "vUnCom": 4.5,
+        "xProd": "REFRIGERANTE"
+      }
+    }
+  ],
+  "emit": {
+    "cnpj": "01.234.567/0001-89",
+    "enderEmit": {
+      "fone": "1-650-933-4902",
+      "xBairro": "",
+      "xLgr": "650 Castro St. unit 210",
+      "xMun": "Mountain View",
+      "xPais": "United States",
+      "uf": "CA"
+    },
+    "xFant": "TOTVS Labs"
+  },
+  "ide": {
+    "dhEmi": {
+      "$date": "2016-01-05T12:20:00.000Z"
+    },
+    "natOp": "VENDA"
+  },
+  "infAdic": {
+    "infCpl": "Mesa 6"
+  },
+  "total": {
+    "icmsTot": {
+      "vDesc": 0.0,
+      "vFrete": 0.0,
+      "vOutro": 0.0,
+      "vProd": 32.76,
+      "vSeg": 0.0,
+      "vTotTrib": 3.29,
+      "vbc": 0.0,
+      "vbcst": 0.0,
+      "vcofins": 0.0,
+      "vicms": 0.0,
+      "vicmsDeson": 0.0,
+      "vii": 0.0,
+      "vipi": 0.0,
+      "vnf": 32.76,
+      "vpis": 0.0,
+      "vst": 0.0
+    }
+  },
+  "versaoDocumento": 1.0
+}
+,{
+  "complemento": {
+    "valorTotal": 57.11
+  },
+  "dets": [
+    {
+      "nItem": "1",
+      "prod": {
+        "indTot": "1",
+        "qCom": 1.0,
+        "uCom": "UN",
+        "vProd": 3.5,
+        "vUnCom": 3.5,
+        "xProd": "AGUA"
+      }
+    },
+    {
+      "nItem": "2",
+      "prod": {
+        "indTot": "1",
+        "qCom": 0.716,
+        "uCom": "KG",
+        "vProd": 49.11,
+        "vUnCom": 68.6,
+        "xProd": "BUFFET"
+      }
+    },
+    {
+      "nItem": "3",
+      "prod": {
+        "indTot": "1",
+        "qCom": 1.0,
+        "uCom": "UN",
+        "vProd": 4.5,
+        "vUnCom": 4.5,
+        "xProd": "CERVEJA"
+      }
+    }
+  ],
+  "emit": {
+    "cnpj": "01.234.567/0001-89",
+    "enderEmit": {
+      "fone": "1-650-933-4902",
+      "xBairro": "",
+      "xLgr": "650 Castro St. unit 210",
+      "xMun": "Mountain View",
+      "xPais": "United States",
+      "uf": "CA"
+    },
+    "xFant": "TOTVS Labs"
+  },
+  "ide": {
+    "dhEmi": {
+      "$date": "2016-01-05T12:22:16.000Z"
+    },
+    "natOp": "VENDA"
+  },
+  "infAdic": {
+    "infCpl": "Mesa 7"
+  },
+  "total": {
+    "icmsTot": {
+      "vDesc": 0.0,
+      "vFrete": 0.0,
+      "vOutro": 0.0,
+      "vProd": 57.11,
+      "vSeg": 0.0,
+      "vTotTrib": 5.79,
+      "vbc": 0.0,
+      "vbcst": 0.0,
+      "vcofins": 0.0,
+      "vicms": 0.0,
+      "vicmsDeson": 0.0,
+      "vii": 0.0,
+      "vipi": 0.0,
+      "vnf": 57.11,
+      "vpis": 0.0,
+      "vst": 0.0
+    }
+  },
+  "versaoDocumento": 1.0
+}
+,{
+  "complemento": {
+    "valorTotal": 36.19
+  },
+  "dets": [
+    {
+      "nItem": "1",
+      "prod": {
+        "indTot": "1",
+        "qCom": 0.462,
+        "uCom": "KG",
+        "vProd": 31.69,
+        "vUnCom": 68.6,
+        "xProd": "BUFFET"
+      }
+    },
+    {
+      "nItem": "2",
+      "prod": {
+        "indTot": "1",
+        "qCom": 1.0,
+        "uCom": "UN",
+        "vProd": 4.5,
+        "vUnCom": 4.5,
+        "xProd": "CERVEJA"
+      }
+    }
+  ],
+  "emit": {
+    "cnpj": "01.234.567/0001-89",
+    "enderEmit": {
+      "fone": "1-650-933-4902",
+      "xBairro": "",
+      "xLgr": "650 Castro St. unit 210",
+      "xMun": "Mountain View",
+      "xPais": "United States",
+      "uf": "CA"
+    },
+    "xFant": "TOTVS Labs"
+  },
+  "ide": {
+    "dhEmi": {
+      "$date": "2016-01-05T12:22:57.000Z"
+    },
+    "natOp": "VENDA"
+  },
+  "infAdic": {
+    "infCpl": "Mesa 9"
+  },
+  "total": {
+    "icmsTot": {
+      "vDesc": 0.0,
+      "vFrete": 0.0,
+      "vOutro": 0.0,
+      "vProd": 36.19,
+      "vSeg": 0.0,
+      "vTotTrib": 3.43,
+      "vbc": 0.0,
+      "vbcst": 0.0,
+      "vcofins": 0.0,
+      "vicms": 0.0,
+      "vicmsDeson": 0.0,
+      "vii": 0.0,
+      "vipi": 0.0,
+      "vnf": 36.19,
+      "vpis": 0.0,
+      "vst": 0.0
+    }
+  },
+  "versaoDocumento": 1.0
+}
+,{
+  "complemento": {
+    "valorTotal": 32.37
+  },
+  "dets": [
+    {
+      "nItem": "1",
+      "prod": {
+        "indTot": "1",
+        "qCom": 0.472,
+        "uCom": "KG",
+        "vProd": 32.37,
+        "vUnCom": 68.6,
+        "xProd": "BUFFET"
+      }
+    }
+  ],
+  "emit": {
+    "cnpj": "01.234.567/0001-89",
+    "enderEmit": {
+      "fone": "1-650-933-4902",
+      "xBairro": "",
+      "xLgr": "650 Castro St. unit 210",
+      "xMun": "Mountain View",
+      "xPais": "United States",
+      "uf": "CA"
+    },
+    "xFant": "TOTVS Labs"
+  },
+  "ide": {
+    "dhEmi": {
+      "$date": "2016-01-05T12:23:25.000Z"
+    },
+    "natOp": "VENDA"
+  },
+  "infAdic": {
+    "infCpl": "Mesa 10"
+  },
+  "total": {
+    "icmsTot": {
+      "vDesc": 0.0,
+      "vFrete": 0.0,
+      "vOutro": 0.0,
+      "vProd": 32.37,
+      "vSeg": 0.0,
+      "vTotTrib": 1.36,
+      "vbc": 0.0,
+      "vbcst": 0.0,
+      "vcofins": 0.0,
+      "vicms": 0.0,
+      "vicmsDeson": 0.0,
+      "vii": 0.0,
+      "vipi": 0.0,
+      "vnf": 32.37,
+      "vpis": 0.0,
+      "vst": 0.0
+    }
+  },
+  "versaoDocumento": 1.0
+}
+,{
+  "complemento": {
+    "valorTotal": 119.47
+  },
+  "dets": [
+    {
+      "nItem": "1",
+      "prod": {
+        "indTot": "1",
+        "qCom": 3.0,
+        "uCom": "UN",
+        "vProd": 3.0,
+        "vUnCom": 1.0,
+        "xProd": "CHA"
+      }
+    },
+    {
+      "nItem": "2",
+      "prod": {
+        "indTot": "1",
+        "qCom": 1.7,
+        "uCom": "KG",
+        "vProd": 116.48,
+        "vUnCom": 68.6,
+        "xProd": "BUFFET"
+      }
+    }
+  ],
+  "emit": {
+    "cnpj": "01.234.567/0001-89",
+    "enderEmit": {
+      "fone": "1-650-933-4902",
+      "xBairro": "",
+      "xLgr": "650 Castro St. unit 210",
+      "xMun": "Mountain View",
+      "xPais": "United States",
+      "uf": "CA"
+    },
+    "xFant": "TOTVS Labs"
+  },
+  "ide": {
+    "dhEmi": {
+      "$date": "2016-01-05T12:30:26.000Z"
+    },
+    "natOp": "VENDA"
+  },
+  "infAdic": {
+    "infCpl": "Mesa 11"
+  },
+  "total": {
+    "icmsTot": {
+      "vDesc": 0.0,
+      "vFrete": 0.0,
+      "vOutro": 0.0,
+      "vProd": 119.48,
+      "vSeg": 0.0,
+      "vTotTrib": 6.9,
+      "vbc": 0.0,
+      "vbcst": 0.0,
+      "vcofins": 0.0,
+      "vicms": 0.0,
+      "vicmsDeson": 0.0,
+      "vii": 0.0,
+      "vipi": 0.0,
+      "vnf": 80.65,
+      "vpis": 0.0,
+      "vst": 0.0
+    }
+  },
+  "versaoDocumento": 1.0
+}
+,{
+  "complemento": {
+    "valorTotal": 37.04
+  },
+  "dets": [
+    {
+      "nItem": "1",
+      "prod": {
+        "indTot": "1",
+        "qCom": 0.54,
+        "uCom": "KG",
+        "vProd": 37.04,
+        "vUnCom": 68.6,
+        "xProd": "BUFFET"
+      }
+    }
+  ],
+  "emit": {
+    "cnpj": "01.234.567/0001-89",
+    "enderEmit": {
+      "fone": "1-650-933-4902",
+      "xBairro": "",
+      "xLgr": "650 Castro St. unit 210",
+      "xMun": "Mountain View",
+      "xPais": "United States",
+      "uf": "CA"
+    },
+    "xFant": "TOTVS Labs"
+  },
+  "ide": {
+    "dhEmi": {
+      "$date": "2016-01-05T12:33:30.000Z"
+    },
+    "natOp": "VENDA"
+  },
+  "infAdic": {
+    "infCpl": "Mesa 15"
+  },
+  "total": {
+    "icmsTot": {
+      "vDesc": 0.0,
+      "vFrete": 0.0,
+      "vOutro": 0.0,
+      "vProd": 37.04,
+      "vSeg": 0.0,
+      "vTotTrib": 1.56,
+      "vbc": 0.0,
+      "vbcst": 0.0,
+      "vcofins": 0.0,
+      "vicms": 0.0,
+      "vicmsDeson": 0.0,
+      "vii": 0.0,
+      "vipi": 0.0,
+      "vnf": 24.69,
+      "vpis": 0.0,
+      "vst": 0.0
+    }
+  },
+  "versaoDocumento": 1.0
+}
+,{
+  "complemento": {
+    "valorTotal": 32.41
+  },
+  "dets": [
+    {
+      "nItem": "1",
+      "prod": {
+        "indTot": "1",
+        "qCom": 1.0,
+        "uCom": "UN",
+        "vProd": 1.0,
+        "vUnCom": 1.0,
+        "xProd": "CHA"
+      }
+    },
+    {
+      "nItem": "2",
+      "prod": {
+        "indTot": "1",
+        "qCom": 0.458,
+        "uCom": "KG",
+        "vProd": 31.41,
+        "vUnCom": 68.6,
+        "xProd": "BUFFET"
+      }
+    }
+  ],
+  "emit": {
+    "cnpj": "01.234.567/0001-89",
+    "enderEmit": {
+      "fone": "1-650-933-4902",
+      "xBairro": "",
+      "xLgr": "650 Castro St. unit 210",
+      "xMun": "Mountain View",
+      "xPais": "United States",
+      "uf": "CA"
+    },
+    "xFant": "TOTVS Labs"
+  },
+  "ide": {
+    "dhEmi": {
+      "$date": "2016-01-05T12:34:09.000Z"
+    },
+    "natOp": "VENDA"
+  },
+  "infAdic": {
+    "infCpl": "Mesa 14"
+  },
+  "total": {
+    "icmsTot": {
+      "vDesc": 0.0,
+      "vFrete": 0.0,
+      "vOutro": 0.0,
+      "vProd": 32.41,
+      "vSeg": 0.0,
+      "vTotTrib": 1.79,
+      "vbc": 0.0,
+      "vbcst": 0.0,
+      "vcofins": 0.0,
+      "vicms": 0.0,
+      "vicmsDeson": 0.0,
+      "vii": 0.0,
+      "vipi": 0.0,
+      "vnf": 32.41,
+      "vpis": 0.0,
+      "vst": 0.0
+    }
+  },
+  "versaoDocumento": 1.0
+}
+]
